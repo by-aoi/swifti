@@ -1,48 +1,57 @@
 {
-  "name": "swifti",
-  "description": "Efficient and minimalist web framework based on folders and files.",
-  "version": "0.2.1",
-  "bin": "dist/index.js",
-  "main": "dist/main.js",
-  "module": "dist/main.mjs",
-  "keywords": [
-    "swifti",
-    "framework",
-    "web",
-    "http",
-    "rest",
-    "api",
-    "restful",
-    "router"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/by-aoi/swifti.git"
-  },
-  "homepage": "https://swifti.vercel.app/",
-  "scripts": {
-    "dev:index": "tsup src/index.ts --format cjs --watch",
-    "build:index": "tsup src/index.ts --format cjs --minify terser",
-    "dev:main": "tsup src/main.ts --format cjs,esm --dts --watch",
-    "build:main": "tsup src/main.ts --format cjs,esm --dts --minify terser",
-    "build": "npm run build:index & npm run build:main",
-    "prepublishOnly": "npm run build"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "esbuild": "^0.20.0",
-    "esbuild-node-tsc": "^2.0.5",
-    "esm": "^3.2.25",
-    "fs-extra": "^11.2.0",
-    "nanoid": "^3.3.4"
-  },
-  "devDependencies": {
-    "@types/esm": "^3.2.2",
-    "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20.10.4",
-    "terser": "^5.25.0",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.2"
-  }
+	"name": "swifti",
+	"description": "Efficient and minimalist web framework based on folders and files.",
+	"version": "0.2.1",
+	"bin": "dist/index.js",
+	"main": "dist/main.js",
+	"module": "dist/main.mjs",
+	"keywords": [
+		"swifti",
+		"framework",
+		"web",
+		"http",
+		"rest",
+		"api",
+		"restful",
+		"router"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/by-aoi/swifti.git"
+	},
+	"homepage": "https://swifti.vercel.app/",
+	"scripts": {
+		"dev:index": "tsup src/index.ts --format cjs --watch",
+		"build:index": "tsup src/index.ts --format cjs --minify terser",
+		"dev:main": "tsup src/main.ts --format cjs,esm --dts --watch",
+		"build:main": "tsup src/main.ts --format cjs,esm --dts --minify terser",
+		"build": "npm run build:index & npm run build:main",
+		"lint": "eslint \"./src/**/*.{ts,tsx}\"",
+		"lint:fix": "eslint --fix \"./src/**/*.{ts,tsx}\"",
+		"prepublishOnly": "npm run build"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"chalk": "^4.1.2",
+		"esbuild": "^0.20.0",
+		"esbuild-node-tsc": "^2.0.5",
+		"esm": "^3.2.25",
+		"fs-extra": "^11.2.0",
+		"nanoid": "^3.3.4"
+	},
+	"devDependencies": {
+		"@types/esm": "^3.2.2",
+		"@types/fs-extra": "^11.0.4",
+		"@types/node": "^20.10.4",
+		"@typescript-eslint/eslint-plugin": "^6.13.2",
+		"eslint": "^8.55.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-config-standard-with-typescript": "^40.0.0",
+		"eslint-plugin-import": "^2.29.0",
+		"eslint-plugin-n": "^16.3.1",
+		"eslint-plugin-promise": "^6.1.1",
+		"terser": "^5.25.0",
+		"tsup": "^8.0.1",
+		"typescript": "^5.3.2"
+	}
 }
