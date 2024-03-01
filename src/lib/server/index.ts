@@ -4,6 +4,7 @@ import { Router, type RouteData } from '../router'
 import { Context } from '../context'
 import { Messages } from '../../utils/messages'
 import { Middleware } from '../middlewares'
+import { SwiftiError } from '../errors'
 
 export enum Method {
 	'GET' = 'GET',
@@ -56,6 +57,10 @@ export function createServer(routes: RouteData[], config: ServerConfig) {
 			}
 			await routeHandle(ctx)
 		} catch (error) {
+			if (error instanceof SwiftiError) {
+				error.write(ctx)
+				return
+			}
 			Messages.error('invalid route function')
 			ctx.res.status(404).json({
 				status: 500,
