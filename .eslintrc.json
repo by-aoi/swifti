@@ -18,6 +18,9 @@
 		"@typescript-eslint/array-type": "off",
 		"@typescript-eslint/prefer-reduce-type-parameter": "off",
 		"no-async-promise-executor": "off",
-		"@typescript-eslint/no-floating-promises": "off"
+		"@typescript-eslint/no-floating-promises": "off",
+		"@typescript-eslint/restrict-template-expressions": "off",
+		"prefer-regex-literals": "off",
+		"no-useless-escape": "off"
 	}
 }

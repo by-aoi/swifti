@@ -1,10 +1,13 @@
 {
 	"name": "swifti",
 	"description": "Efficient and minimalist web framework based on folders and files.",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"bin": "dist/index.js",
 	"main": "dist/main.js",
 	"module": "dist/main.mjs",
+	"workspaces": [
+		"tests"
+	],
 	"keywords": [
 		"swifti",
 		"framework",
@@ -23,9 +26,11 @@
 	"scripts": {
 		"dev:index": "tsup src/index.ts --format cjs --watch",
 		"build:index": "tsup src/index.ts --format cjs --minify terser",
+		"dev:config": "tsup src/config/index.ts --d ./config --format cjs,esm --dts --watch",
+		"build:config": "tsup src/config/index.ts --d ./config --format cjs,esm --dts --minify terser",
 		"dev:main": "tsup src/main.ts --format cjs,esm --dts --watch",
 		"build:main": "tsup src/main.ts --format cjs,esm --dts --minify terser",
-		"build": "npm run build:index & npm run build:main",
+		"build": "npm run build:index & npm run build:main & npm run build:config",
 		"lint": "eslint \"./src/**/*.{ts,tsx}\"",
 		"lint:fix": "eslint --fix \"./src/**/*.{ts,tsx}\"",
 		"prepublishOnly": "npm run build"
@@ -33,15 +38,17 @@
 	"license": "MIT",
 	"dependencies": {
 		"chalk": "^4.1.2",
-		"esbuild": "^0.20.0",
+		"esbuild": "^0.20.1",
 		"esbuild-node-tsc": "^2.0.5",
 		"esm": "^3.2.25",
 		"fs-extra": "^11.2.0",
+		"mime-types": "^2.1.35",
 		"nanoid": "^3.3.4"
 	},
 	"devDependencies": {
 		"@types/esm": "^3.2.2",
 		"@types/fs-extra": "^11.0.4",
+		"@types/mime-types": "^2.1.4",
 		"@types/node": "^20.10.4",
 		"@typescript-eslint/eslint-plugin": "^6.13.2",
 		"eslint": "^8.55.0",
